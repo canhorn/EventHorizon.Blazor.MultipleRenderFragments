@@ -1,0 +1,35 @@
+﻿@page "/"
+@using EventHorizon.Blazor.MultipleRenderFragments.Pages.Components
+
+<h1>Multiple Render Fragements</h1>
+
+<button class="btn btn-primary" type="button" @onclick="OpenModal">
+    Open
+</button>
+
+<DetailsArea Title="Game World Details" IsOpen="IsOpen">
+    <Header>
+        Game World Details
+    </Header>
+    <Body>
+        <div style="font-weight: bold;">Players: </div>
+        <div>1,000,000,000</div>
+    </Body>
+    <SubContent>
+        <button class="btn btn-secondary" @onclick="CloseModal">Close</button>
+    </SubContent>
+</DetailsArea>
+
+
+@code {
+    protected bool IsOpen = false;
+
+    protected void OpenModal()
+    {
+        IsOpen = true;
+    }
+    protected void CloseModal()
+    {
+        IsOpen = false;
+    }
+}

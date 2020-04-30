@@ -1,0 +1,31 @@
+
+@if (!IsOpen) 
+{
+    <div>@Title (Is Closed)</div>
+}
+<div class="details-area" style="@(IsOpen ? "display: block;" : "display: none;")">
+    <h1>
+        @Header
+    </h1>
+    <div>
+        @Body
+    </div>
+    <div>
+        @SubContent
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public bool IsOpen { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+    [Parameter]
+    public RenderFragment Body { get; set; }
+    [Parameter]
+    public RenderFragment SubContent { get; set; }
+}
